@@ -1,6 +1,6 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
-// ANSI »ö»ó ÄÚµå Á¤ÀÇ
+// ANSI ìƒ‰ìƒ ì½”ë“œ ì •ì˜
 #define RESET       "\x1b[0m"
 #define RED         "\x1b[41m"
 #define YELLOW      "\x1b[43m"
@@ -9,21 +9,72 @@
 #define MAGENTA_BG  "\x1b[45m"
 
 int main() {
-    // ÅØ½ºÆ® Ãâ·Â (ÁöºØ À§ 2Ä­ À§)
-    printf("\n\n     " MAGENTA_BG GREEN_TEXT "³ª´Â Àß ½ÃÇèÀ» º¸°íÀÖ³ª?" RESET "\n");
+    // í…ìŠ¤íŠ¸ ì¶œë ¥ (ì§€ë¶• ìœ„ 2ì¹¸ ìœ„)
+    printf("\n\n     " MAGENTA_BG GREEN_TEXT "ë‚˜ëŠ” ì˜ ì‹œí—˜ì„ ë³´ê³ ìˆë‚˜?" RESET "\n");
 
-    // º»Ã¼ Ãâ·Â
+    // ë³¸ì²´ ì¶œë ¥
     printf(YELLOW "       _________        \n");
     printf("      /         \\       \n");
     printf("     /           \\      \n");
     printf(RED "    /             \\     \n");
     printf("   /               \\    \n");
-    printf("  /       " YELLOW "[¡á]" RED "       \\   \n");
+    printf("  /       " YELLOW "[â– ]" RED "       \\   \n");
     printf(" /_________________\\  \n");
-    printf(YELLOW "|   [¡á]     [¡á]    | \n");
+    printf(YELLOW "|   [â– ]     [â– ]    | \n");
     printf("|        ___        | \n");
     printf("|_______|___|_______| \n" RESET);
 
-    // ¹è°æ »ê°ú º°Àº Á¦¿Ü
+    // ë°°ê²½ ì‚°ê³¼ ë³„ì€ ì œì™¸
+    return 0;
+}
+
+#include <iostream>
+#include <conio.h>      // _getch()
+#include <windows.h>    // gotoxy, SetConsoleTextAttribute
+
+using namespace std;
+
+// ï¿½Ü¼ï¿½ ï¿½ï¿½Ç¥ ï¿½Ìµï¿½ ï¿½Ô¼ï¿½
+void gotoxy(int x, int y) {
+    COORD pos = { (SHORT)x, (SHORT)y };
+    SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), pos);
+}
+
+// ï¿½Ë¾ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
+void showPopup() {
+    int x = 30, y = 10;
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), BACKGROUND_BLUE | FOREGROUND_RED | FOREGROUND_GREEN); // ï¿½Ä¶ï¿½ ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
+    gotoxy(x, y);
+    cout << "ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö¾ï¿½!";
+    SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+}
+
+// ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½ï¿½ï¿½ï¿½
+int main() {
+    char key;
+
+    // ï¿½×¸ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (ASCII ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½)
+    // gotoxy(x, y)ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½ß±ï¿½
+
+    gotoxy(0, 22);
+    cout << "y: ï¿½ï¿½ï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ / n: ï¿½ï¿½ï¿½ï¿½ / ï¿½ï¿½ ï¿½ï¿½: ï¿½ï¿½ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½" << endl;
+
+    key = _getch();  // Å° ï¿½Ô·ï¿½ ï¿½Ş±ï¿½ (Enter ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ï¿½)
+
+    if (key == 'n' || key == 'N') {
+        gotoxy(0, 25);
+        cout << "ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Õ´Ï´ï¿½." << endl;
+        return 0;
+    }
+    else if (key == 'y' || key == 'Y') {
+        showPopup();  // ï¿½Ë¾ï¿½ ï¿½Ş½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
+    }
+    else {
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED); // ï¿½ï¿½ï¿½ï¿½ ï¿½Û¾ï¿½
+        gotoxy(0, 27);  // ï¿½Üµï¿½ ï¿½Æ·ï¿½ ï¿½Æ¹ï¿½ ï¿½ï¿½Ä¡
+        cout << "ï¿½Ù½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ï¿½Ö¼ï¿½ï¿½ï¿½!!!" << endl;
+        SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), 7); // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    }
+
     return 0;
 }
