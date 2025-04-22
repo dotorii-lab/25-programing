@@ -1,0 +1,27 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.326
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem1", "Problem1\Problem1.vcxproj", "{30000000-0000-0000-0000-000030000000}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem2", "Problem2\Problem2.vcxproj", "{30000001-0000-0000-0000-000030000001}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem3", "Problem3\Problem3.vcxproj", "{30000002-0000-0000-0000-000030000002}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Problem4", "Problem4\Problem4.vcxproj", "{30000003-0000-0000-0000-000030000003}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{30000000-0000-0000-0000-000030000000}.Debug|x64.ActiveCfg = Debug|x64
+		{30000000-0000-0000-0000-000030000000}.Debug|x64.Build.0 = Debug|x64
+		{30000001-0000-0000-0000-000030000001}.Debug|x64.ActiveCfg = Debug|x64
+		{30000001-0000-0000-0000-000030000001}.Debug|x64.Build.0 = Debug|x64
+		{30000002-0000-0000-0000-000030000002}.Debug|x64.ActiveCfg = Debug|x64
+		{30000002-0000-0000-0000-000030000002}.Debug|x64.Build.0 = Debug|x64
+		{30000003-0000-0000-0000-000030000003}.Debug|x64.ActiveCfg = Debug|x64
+		{30000003-0000-0000-0000-000030000003}.Debug|x64.Build.0 = Debug|x64
+	EndGlobalSection
+EndGlobal
